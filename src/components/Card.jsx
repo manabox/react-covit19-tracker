@@ -1,7 +1,7 @@
-const Card = (props) => {
+const Card = ({allCountriesData}) => {
     return (
         <div className="flex">
-            {props.allCountriesData.map((singleData, index) =>
+            {allCountriesData.map((singleData, index) =>
                 <table key={index} className="results">
                     <tbody>
                         <tr>
