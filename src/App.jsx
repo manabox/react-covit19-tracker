@@ -36,6 +36,7 @@ function App() {
           totalDeaths: data[data.length - 1].Deaths
         });
       })
+      .catch(err => alert('Error!'))
   }
 
   /*
@@ -47,6 +48,7 @@ function App() {
     fetch('https://api.covid19api.com/summary')
     .then(res => res.json())
     .then(data => setAllCountriesData(data.Countries))
+    .catch(err => alert('Error!'))
   },[])
 
   return (
