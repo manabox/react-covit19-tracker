@@ -1,0 +1,74 @@
+body {
+  background: #eee;
+  color: #666;
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+  font-size: 1.25rem;
+}
+h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  background-color: #0bd;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: rgba(255,255,255,.5) 0px 2px 2px;
+}
+.results {
+  border-radius: 50px;
+  background: #eee;
+  box-shadow: 5px 5px 8px #bbb, -5px -5px 8px #fff;
+  padding: 2rem;
+  width: min(90%, 500px);
+  margin: auto;
+  border-spacing: 0;
+}
+td {
+  padding: .5rem 0;
+}
+tr:not(:last-child) td {
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 2px 2px -1px #fff;
+}
+td:nth-child(odd) {
+  text-align: right;
+}
+td:nth-child(even) {
+  text-align: left;
+  font-size: 2rem;
+  padding-left: 2rem;
+}
+td.tdcenter {
+  text-align: center;
+}
+td.tdcenter h2 {
+  margin: 0 0 1rem;
+}
+.selector {
+  margin-bottom: 3rem;
+}
+select,
+button {
+  font-family: 'Nunito', sans-serif;
+  color: #666;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 1.5rem;
+}
+select {
+  background: #eee;
+  box-shadow: inset 3px 3px 5px #bbb, inset -3px -3px 5px #fff;
+  margin-right: 1rem;
+}
+button {
+  padding: .65rem 1rem;
+  box-shadow: 5px 5px 8px #bbb, -5px -5px 8px #fff;
+  background-image: linear-gradient(45deg, #eee, #74d7e8);
+}
+.flex {
+  display: grid;
+  gap: 2rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
