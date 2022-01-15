@@ -20,7 +20,7 @@ const Selector = ({setCountry, countriesJson, getCountryData}) => {
                     </option>
                 )}
             </select>
-            <button onClick={getCountryData}>Get Data</button>
+            <button className="btn" onClick={getCountryData}>Get Data</button>
         </div>
     )
 }

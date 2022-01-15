@@ -1,7 +1,10 @@
-const Results = ({countryData}) => {
+import Loading from './Loading';
+
+const Results = ({countryData, loading}) => {
     const { date, newConfirmed, totalConfirmed, newDeaths, totalDeaths } = countryData;
     return (
         <table className="results">
+            {loading ? <Loading /> :
             <tbody>
                 <tr>
                     <td>Date</td>
@@ -24,6 +27,7 @@ const Results = ({countryData}) => {
                     <td>{totalDeaths.toLocaleString()}</td>
                 </tr>
             </tbody>
+            }
         </table>
     )
 }

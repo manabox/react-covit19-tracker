@@ -6,6 +6,9 @@ import WorldPage from './pages/WorldPage';
 import './App.css'
 
 function App() {
+  // Loading
+  const [loading, setLoading] = useState(false);
+
   /*
     country = option で選択した国のslugが保存される
     setCountry = state にデータを書き込んだり操作する仕組み
@@ -24,19 +27,22 @@ function App() {
 
   // Each country
   const getCountryData = () => {
-      fetch(`https://api.covid19api.com/country/${country}`)
-      // res = response. fetchで取得したデータはJSON形式じゃないのでjson()でJSON形式に変換する
-      .then(res => res.json())
-      .then(data => {
-        setCountryData({
-          date: data[data.length - 1].Date,
-          newConfirmed: data[data.length - 1].Confirmed - data[data.length - 2].Confirmed,
-          totalConfirmed: data[data.length - 1].Confirmed,
-          newDeaths: data[data.length - 1].Deaths - data[data.length - 2].Deaths,
-          totalDeaths: data[data.length - 1].Deaths
-        });
-      })
-      .catch(err => alert('Error!'))
+    setLoading(true); // Start loading
+
+    fetch(`https://api.covid19api.com/country/${country}`)
+    // res = response. fetchで取得したデータはJSON形式じゃないのでjson()でJSON形式に変換する
+    .then(res => res.json())
+    .then(data => {
+      setCountryData({
+        date: data[data.length - 1].Date,
+        newConfirmed: data[data.length - 1].Confirmed - data[data.length - 2].Confirmed,
+        totalConfirmed: data[data.length - 1].Confirmed,
+        newDeaths: data[data.length - 1].Deaths - data[data.length - 2].Deaths,
+        totalDeaths: data[data.length - 1].Deaths
+      });
+      setLoading(false); // End of loading
+    })
+    .catch(err => alert('Error!'))
   }
 
   /*
@@ -62,6 +68,7 @@ function App() {
               setCountry={setCountry}
               getCountryData={getCountryData}
               countryData={countryData}
+              loading={loading}
             />
           }
         />
