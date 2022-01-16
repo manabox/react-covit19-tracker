@@ -1,4 +1,4 @@
-const Selector = ({setCountry, countriesJson, getCountryData}) => {
+const Selector = ({setCountry, countriesJson}) => {
     return (
         <div className="selector">
             {/*
@@ -10,7 +10,6 @@ const Selector = ({setCountry, countriesJson, getCountryData}) => {
                     mapにはkeyが必要
                     通し番号(index)が自動的につくのでそれを使う
                 */}
-                <option>Select a Country</option>
                 {countriesJson.map((country, index) => 
                     <option
                         key={index}
@@ -20,7 +19,6 @@ const Selector = ({setCountry, countriesJson, getCountryData}) => {
                     </option>
                 )}
             </select>
-            <button className="btn" onClick={getCountryData}>Get Data</button>
         </div>
     )
 }
